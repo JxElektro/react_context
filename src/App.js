@@ -1,43 +1,27 @@
-import React, { useState } from "react";
+
+import React from "react";
+import { useContext } from "react";
+import Contador from "./Components/Contador";
+import GastosMes from "./Components/gastoMes";
+import AgregarGasto from "./Components/AgregarDato";
+import './App.css';
+import gastosContext from "./Components/context";
+
+
+
 
 function App() {
+  
+  const newGasto = useContext(gastosContext);
+
   return (
-    <>
-      <Contador/>
-      <GastosMes/>
-      <AgregarGasto/>
-    </>
+    <gastosContext.Provider value={newGasto}>
+      <Contador />
+      <h1>hola</h1>
+      <AgregarGasto />
+      <GastosMes />
+    </gastosContext.Provider>
   );
-}
-
-function Contador (){
-  return <div> Gasto mensual: </div>;
-}
-
-function GastosMes (){
-  const [gastos, setGastos] = useState([1500, 300, 450])
-
-return (
-  <ul>
-    {gastos.map ((gasto) =>( <li key = {gasto}>{gasto}</li>
-    ))}
-  </ul>
-);
-}
-
-function AgregarGasto () {
-  function handleSubmit (event) {
-    event.preventDefault ();
-    const gasto = event.target.elements.gasto.value;
-    console.log (gasto)
-  }
-
-return (
-  <form onSubmit = {handleSubmit}>
-    <input autocomplete="off" type = "text" id = "gasto"/>
-    <button type="Submit"> Agregar gasto </button>
-  </form>
-)
 }
 
 
