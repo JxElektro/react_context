@@ -1,14 +1,16 @@
 import { useContext } from "react";
-import gastosContext from "./context";
+import GastosContext from "../context/context";
 
-function GastosMes(item) {
 
-  const newGasto = useContext(gastosContext);
+function GastosMes() {
+
+  const { gastos } = useContext(GastosContext);
 
   return (
     <ul>
-      {item.map((gasto) => (<li key={gasto}>{gasto}</li>
-      ))}
+      {
+        gastos.map((gasto) => (<li key={gasto}>{gasto}</li>))
+      }
     </ul>
   );
 }

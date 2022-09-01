@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import gastosContext from "./context";
+import GastosContext from "../context/context";
 
 function Contador() {
-  const newGasto = useContext(gastosContext);
+  const { gastos } = useContext(GastosContext);
 
   let total = 0;
-  for (let i = 0; i < newGasto.length; i++)
-    total += Number(newGasto[i])
+  for (let i = 0; i < gastos.length; i++) {
+    total += Number(gastos[i]);
+  } 
 
   return <div> Gasto mensual: ({parseInt(total)}  )</div>;
 }
