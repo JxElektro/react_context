@@ -1,16 +1,14 @@
 import { useContext } from "react";
-import gastosContext from "./context";
+import GastosContext from "../context/context";
 
 function AgregarGasto() {
 
-const newGasto = useContext(gastosContext);
-
+const { agregarGasto } = useContext(GastosContext);
 
   function handleSubmit(e) {
     e.preventDefault();
     const gasto = e.target.elements.gasto.value;
-    newGasto(e => [...e, gasto])
-    console.log(gasto)
+    agregarGasto(gasto);
   }
 
   return (
