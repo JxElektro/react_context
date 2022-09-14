@@ -16,14 +16,16 @@ function App() {
   }
 
   return (
-    <GastosContext.Provider value={{
+    <GastosContext.Provider id="App" value={{
       gastos,
       agregarGasto
     }}>
-      <Contador />
-      <h1>hola</h1>
+    <h1>Gastos Mensuales</h1>
+      
+      
       <AgregarGasto />
       <GastosMes />
+      <Contador />
     </GastosContext.Provider>
   );
 }

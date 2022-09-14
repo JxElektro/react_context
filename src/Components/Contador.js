@@ -9,7 +9,7 @@ function Contador() {
     total += Number(gastos[i]);
   } 
 
-  return <div> Gasto mensual: ({parseInt(total)}  )</div>;
+  return <div> Total Mensual: ({parseInt(total)}  )</div>;
 }
 
 export default Contador;
